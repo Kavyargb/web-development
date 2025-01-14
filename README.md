@@ -1,5 +1,4 @@
-# Full Stack Development Course - FREE!
-# Full Stack Web Developer Course - FREE!
+# Full Stack Web Developement Course - FREE!
 
 I'm excited to announce a comprehensive **FREE** full-stack web development course, starting from the very basics of the internet and going all the way to servers and scalability. This course will cover everything you need to know to become a well-rounded web developer.
 

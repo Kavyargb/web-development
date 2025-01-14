@@ -1,0 +1,415 @@
+:root {
+    /*  Evocative Color Palette - Moving beyond standard primary/secondary */
+    --brand-hue: 210; /*  A central hue for consistent theming */
+    --primary-color: hsl(var(--brand-hue), 70%, 50%); /*  Vibrant and modern */
+    --secondary-color: hsl(calc(var(--brand-hue) + 30), 60%, 60%); /*  Complementary with a twist */
+    --accent-color: #ffc107; /* A touch of energy */
+    --text-color-primary: hsl(0, 0%, 20%); /* Deep, readable dark */
+    --text-color-secondary: hsl(0, 0%, 40%);
+    --background-light: hsl(0, 0%, 98%);
+    --background-lighter: hsl(0, 0%, 99%);
+    --background-accent: hsl(var(--brand-hue), 10%, 95%); /* Subtle hint of the brand */
+    --white: #fff;
+    --font-base: 'Inter var', sans-serif; /*  Modern, variable font for optimized rendering */
+    --font-display: 'Playfair Display', serif; /* Elegant serif for headings */
+    --border-radius: 12px; /* Slightly more pronounced */
+    --box-shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.08); /*  Subtler, more diffused */
+    --box-shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1); /* For emphasis */
+    --transition-duration: 0.4s; /*  Slightly smoother */
+    --transition-easing: cubic-bezier(0.23, 1, 0.32, 1); /* A more dynamic easing function */
+}
+
+/*  Import Variable Font - Enhances Typography and Performance */
+@supports (font-variation-settings: normal) {
+    :root {
+        --font-base: 'Inter var', sans-serif;
+    }
+}
+
+/* Embrace Modern Box-Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Keep the smooth scrolling */
+}
+
+body {
+    font-family: var(--font-base);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color-primary);
+    line-height: 1.7; /* Slightly more generous line height */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*  Subtle Background Texture - Adds depth without being distracting */
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.02) 0%, transparent 80%);
+}
+
+.container {
+    width: clamp(80%, 960px, 90%); /* Adjusted starting width */
+    margin-inline: auto;
+    padding-inline: 1.5rem; /* Slightly increased horizontal padding */
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding-block: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow-md); /* More prominent shadow */
+    /*  Subtle Gradient Overlay - Adds visual interest */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Clip the wavy background */
+}
+header a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--background-light);
+    border-radius: 50% / 15%; /* Creates a subtle wave effect */
+}
+
+header h1 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2.2rem, 3vw, 3.5rem);
+    font-family: var(--font-display); /* Use the display font */
+    font-weight: 700;
+    letter-spacing: -1px; /* Tighten the letter spacing */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.85;
+    font-style: italic; /* A touch of elegance */
+}
+
+.hero {
+    background-color: var(--white);
+    text-align: center;
+    padding-block: 4rem;
+    /*  Parallax Background Effect - Adds a sense of depth */
+    background-image: url('your-subtle-pattern.svg'); /* Replace with your SVG */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Subtle overlay for better text readability */
+    backdrop-filter: blur(5px); /*  Modern blur effect */
+}
+
+.hero > * {
+    position: relative; /* Bring content above the overlay */
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 2rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    /*  Animating Text Appearance - Subtle entrance */
+    animation: fadeInDown 1s var(--transition-easing) backwards 0.2s;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-inline: auto;
+    animation: fadeInUp 1s var(--transition-easing) backwards 0.4s;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1.25rem 2.5rem;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600; /* Slightly lighter bold */
+    display: inline-block;
+    transition: background-color var(--transition-duration), transform var(--transition-duration), box-shadow var(--transition-duration);
+    outline: none;
+    box-shadow: var(--box-shadow-sm);
+    /*  Slightly Bolder Text Shadow on Hover */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: hsl(calc(var(--brand-hue) + 30), 70%, 55%); /* Lighter on hover */
+    transform: scale(1.08);
+    box-shadow: var(--box-shadow-md);
+}
+
+.features {
+    background-color: var(--background-lighter);
+    padding-block: 4rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted min width */
+    gap: 3rem;
+    /*  Subtle Skew on Background - Adds a dynamic edge */
+    transform: skewY(-1.5deg);
+    margin-top: -2rem; /* Overlap with the hero section */
+    padding-top: 6rem; /* Adjust top padding to compensate for overlap */
+}
+
+.features > * {
+    transform: skewY(1.5deg); /* Counter-skew the content */
+}
+
+.features > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 3rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.feature-box {
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: calc(var(--border-radius) * 1.5); /* More rounded corners */
+    box-shadow: var(--box-shadow-md);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    /*  Adding a Border with a Subtle Animation */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    border-color: var(--primary-color); /* Highlight border on hover */
+}
+
+.feature-box h3 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    /*  Subtle Icon/Emoji - Adds visual interest */
+}
+
+.feature-box p {
+    color: var(--text-color-secondary);
+}
+
+.latest-blogs {
+    background-color: var(--white);
+    padding-block: 4rem;
+}
+
+.blog-preview {
+    border-bottom: 2px solid var(--background-light); /* Thicker border */
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* More structured layout */
+    gap: 2rem;
+    align-items: start;
+}
+
+.blog-preview:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.blog-preview .blog-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-sm);
+}
+
+.blog-preview .blog-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s var(--transition-easing);
+}
+
+.blog-preview:hover .blog-image img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.blog-preview h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.blog-preview h4 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+.blog-preview h4 a:hover,
+.blog-preview h4 a:focus {
+    color: hsl(var(--brand-hue), 80%, 40%); /* Slightly darker and more saturated on hover */
+}
+
+.tool-hub-preview {
+    background-color: var(--background-accent);
+    padding-block: 4rem;
+    text-align: center;
+        /*  Adding a subtle background pattern for visual distinction */
+        background-image: url("data:image/svg+xml,%3Csvg width='42' height='12' viewBox='0 0 42 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H42V4H0V0Z' fill='%23E0E7EB'/%3E%3Cpath d='M0 8H42V12H0V8Z' fill='%23E0E7EB'/%3E%3C/svg%3E"); /*  A subtle striped pattern */
+        /*  Slightly slanted to match the features section */
+        transform: skewY(1.5deg);
+        margin-bottom: -2rem; /* Overlap with the footer */
+        padding-bottom: 6rem; /* Adjust bottom padding to compensate for overlap */
+    }
+    
+    .tool-hub-preview > * {
+        transform: skewY(-1.5deg); /* Counter-skew the content */
+    }
+    
+    .tool-hub-preview h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .tool-hub-preview p {
+        color: var(--text-color-secondary);
+        font-size: 1.15rem;
+        max-width: 750px;
+        margin-inline: auto;
+        margin-bottom: 2.5rem;
+    }
+    
+    .tool-hub-preview .tool-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        text-align: left; /* Adjust text alignment for the grid items */
+    }
+    
+    .tool-hub-preview .tool-item {
+        background-color: var(--white);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow-sm);
+        transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+        border-left: 4px solid var(--secondary-color); /*  Subtle indicator */
+    }
+    
+    .tool-hub-preview .tool-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-md);
+    }
+    
+    .tool-hub-preview .tool-item h3 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .tool-hub-preview .tool-item p {
+        color: var(--text-color-secondary);
+        font-size: 0.95rem;
+    }
+    
+    footer {
+        background-color: hsl(var(--brand-hue), 30%, 25%); /* Darker shade of the primary hue */
+        color: var(--white);
+        text-align: center;
+        padding-block: 2rem;
+        font-size: 0.9rem;
+            /*  Adding a subtle pattern overlay for texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Ccircle fill='%234A5568' cx='2' cy='2' r='1'/%3E%3Ccircle fill='%234A5568' cx='6' cy='6' r='1'/%3E%3C/svg%3E"); /*  A subtle dot pattern */
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    transition: text-decoration var(--transition-duration), color var(--transition-duration);
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+    color: var(--accent-color); /* Highlight on hover */
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/*  Subtle Animations - Keyframes for entrance effects */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*  Media Queries for Enhanced Responsiveness - Fine-tuning for different screen sizes */
+@media (max-width: 768px) {
+    .blog-preview {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+
+    .blog-preview .blog-image {
+        margin-bottom: 1rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+/*  Accessibility Enhancements - Ensuring usability for everyone */
+.cta-button:focus {
+    box-shadow: 0 0 0 3px var(--accent-color); /* Clear focus indicator */
+}
+
+/*  Smooth Scrolling for Anchor Links (already present, keeping it) */
+html {
+    scroll-behavior: smooth;
+}

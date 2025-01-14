@@ -1,0 +1,216 @@
+.blog-index {
+    background-color: var(--background-light);
+    position: relative;
+    overflow: hidden;
+    /*  Subtle Parallax Effect on Background */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url('your-abstract-background-image.jpg'); /* Replace with a visually striking abstract image */
+}
+
+.blog-index::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*  More Complex and Dynamic Gradient */
+    background: linear-gradient(90deg,
+        hsl(var(--brand-hue), 20%, 98%) 0%,
+        hsl(var(--brand-hue), 15%, 95%) 50%,
+        hsl(var(--brand-hue), 10%, 98%) 100%);
+    z-index: -1;
+    /*  Subtle Wavy Distortion - Creates a softer visual */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 C 25 75, 75 25, 100 50 L 100 100 L 0 100 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E"),
+                      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 C 25 25, 75 75, 100 50 L 100 0 L 0 0 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
+    background-size: 200% 200%; /* Make the pattern larger */
+    background-position: 0 0, 100% 100%; /* Position the two waves */
+    background-repeat: repeat-x, repeat-x;
+    animation: waveMotion 10s linear infinite; /* Animate the waves */
+    opacity: 0.8; /* Slightly transparent for subtlety */
+}
+
+@keyframes waveMotion {
+    0% {
+        background-position: 0 0, 100% 100%;
+    }
+    100% {
+        background-position: 100% 0, 0 100%;
+    }
+}
+
+.blog-index .container {
+    position: relative;
+    /*  Slightly Zoom In Effect on Load */
+    animation: scaleUp 1s var(--transition-easing) backwards 0.2s;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.blog-index h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem); /* More impactful heading */
+    text-align: center;
+    position: relative;
+    /*  Animated Text Shadow */
+    transition: text-shadow 0.5s var(--transition-easing);
+}
+
+.blog-index h2:hover {
+    text-shadow: 0 0 10px var(--secondary-color);
+}
+
+.blog-index h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 80px; /* Slightly wider */
+    height: 6px; /* Slightly thicker */
+    background-color: var(--accent-color); /* Use the accent color for more pop */
+    transform: translateX(-50%);
+    border-radius: 3px;
+    /*  Pulse Animation for the underline */
+    animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: translateX(-50%) scaleX(0.8);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateX(-50%) scaleX(1.2);
+        opacity: 1;
+    }
+}
+
+.blog-index h3 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    position: relative;
+    border-bottom: 3px dashed var(--background-accent); /* Thicker border */
+    /*  Add an Icon/Emoji before the heading */
+}
+
+.blog-index h3::before {
+    content: '»'; /* Example icon */
+    position: absolute;
+    left: -1.2em;
+    top: 0;
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    opacity: 0.7;
+    /*  Subtle Slide-in Animation for the icon */
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: transform 0.4s var(--transition-easing), opacity 0.4s var(--transition-easing);
+}
+
+.blog-index h3:hover::before {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.blog-index ul {
+    margin-bottom: 4rem;
+    padding-left: 0; /* Remove default padding */
+    list-style: none; /* Remove default bullets */
+    /*  Staggered Animation for List Items */
+    display: grid;
+    gap: 1.5rem;
+}
+
+.blog-index li {
+    margin-bottom: 0; /* Remove default margin */
+    position: relative;
+    padding-left: 1.5rem;
+    /*  Custom Bullet with Hover Animation */
+}
+
+.blog-index li::before {
+    content: '';
+    position: absolute;
+    top: 0.75em;
+    left: 0;
+    width: 0.7em;
+    height: 0.7em;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transform: scale(0.6);
+    opacity: 0.9;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.blog-index li:hover::before {
+    transform: scale(0.9);
+    background-color: var(--secondary-color);
+}
+
+.blog-index ul ul {
+    margin-left: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--background-accent); /* Thicker border */
+}
+
+.blog-index ul ul li::before {
+    background-color: var(--secondary-color);
+    transform: scale(0.4);
+}
+
+.blog-index a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s var(--transition-easing), box-shadow 0.3s var(--transition-easing);
+    position: relative;
+    display: inline-block; /* Ensure the underline spans correctly */
+}
+
+.blog-index a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Start from the center */
+    bottom: 0;
+    width: 0; /* Start with zero width */
+    height: 3px; /* Thicker underline */
+    background-color: var(--accent-color); /* Use accent color for underline */
+    transform: translateX(-50%); /* Keep it centered */
+    transition: width 0.4s var(--transition-easing); /* Animate width */
+    border-radius: 1.5px;
+}
+
+.blog-index a:hover {
+    color: var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.blog-index a:hover::after {
+    width: 100%; /* Expand on hover */
+}
+
+.blog-index h3::before {
+    content: ''; /* Remove duplicate before element */
+}
+
+@media (min-width: 768px) {
+    .blog-index ul {
+        column-count: 2;
+        column-gap: 3rem;
+    }
+    .blog-index ul ul {
+        column-count: 1;
+    }
+    .blog-index li {
+        break-inside: avoid;
+    }
+}

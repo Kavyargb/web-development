@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek HTML/CSS/JS Displayer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app-container">
+      <header class="app-header">
+          <div class="logo">HTML, CSS and JS Editor</div>
+          <div class="controls">
+            <a href="/blog/" style="text-decoration: none; color: inherit; transition: opacity 0.3s; opacity: 0.8; padding-right: 20px;">Learn HTML, CSS and JS for free</a>
+            <button id="theme-toggle"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+            <button id="full-screen-toggle"><i class="fas fa-expand"></i></button>
+          </div>
+
+      </header>
+        <div class="code-editor-container">
+            <div class="code-pane">
+              <div class="editor-header">
+                  <span class="tab active" data-code="html">HTML</span>
+                  <span class="tab" data-code="css">CSS</span>
+                  <span class="tab" data-code="js">JS</span>
+              </div>
+                <div class="code-area">
+                   <div class="line-numbers">1</div>
+                   <textarea id="html-code" class="code-input active" placeholder="HTML Code"></textarea>
+                    <textarea id="css-code" class="code-input" placeholder="CSS Code"></textarea>
+                    <textarea id="js-code" class="code-input" placeholder="JavaScript Code"></textarea>
+                </div>
+            </div>
+            <div class="preview-pane">
+                <iframe id="preview"></iframe>
+            </div>
+        </div>
+        <footer>
+            <p>Made with ❤️ by Kavya Sahai</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

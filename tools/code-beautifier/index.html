@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Beautifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+          <a href="/blog/" style="text-decoration: none; color: inherit; transition: opacity 0.3s; opacity: 0.8; padding-right: 20px;">Learn HTML, CSS and JS for free</a>     
+    </header>
+     <div id="notification-container"></div>
+    <div class="container">
+        <h1> Code Beautifier</h1>
+        <textarea id="code-input" placeholder="Paste your code here..."></textarea>
+        <div class="button-container">
+          <button id="beautify-btn">Beautify</button>
+          <button id="minify-btn">Minify</button>
+        </div>
+        
+        <div class="code-output-container">
+            <pre><code id="code-output"></code></pre>
+            <button class="copy-code-btn">Copy</button>
+            <button class="download-code-btn">Download</button>
+          </div>
+      </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
